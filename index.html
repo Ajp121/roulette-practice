@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roulette Dealer Practice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div><p class="eyebrow">DEALER TRAINING / NO REAL MONEY</p><h1>Roulette practice</h1></div>
+      <div class="score" id="score">0 rounds completed</div>
+    </header>
+    <section class="settings" aria-label="Next round settings">
+      <label>Wheel<select id="wheel"><option value="american">American (0 + 00)</option><option value="european">European (0)</option></select></label>
+      <label>Chip value<select id="unit"><option value="0.25">$0.25</option><option value="0.5">$0.50</option><option value="1" selected>$1</option><option value="5">$5</option></select></label>
+      <label>Bets per round<select id="count"><option>4</option><option selected>8</option><option>12</option><option>16</option></select></label>
+      <label>Payout question<select id="mode"><option value="profit">Winnings only (stake stays)</option><option value="total">Total return (including stake)</option></select></label>
+      <button id="deal" class="primary">Deal random bets</button>
+    </section>
+    <section class="round-bar">
+      <div><span id="step" class="eyebrow">READY</span><h2 id="instruction">Deal some bets to begin.</h2><p id="round-info">Settings apply to the next deal. Standard rules: zero loses all even-money outside bets.</p></div>
+      <div class="spin-controls"><div id="result" class="ball" aria-label="Winning number">?</div><button id="spin" disabled>Spin wheel</button></div>
+    </section>
+    <div id="feedback" role="status" aria-live="polite"></div>
+    <div class="workspace">
+      <section class="table-panel" aria-label="Roulette table">
+        <div class="table-scroll"><div id="table" class="table"></div></div>
+        <p class="legend">Numbered chips match the bet cards. After the spin, click a chip or Remove to collect a losing bet. Hover or focus a bet to see the numbers it covers.</p>
+        <button id="check" disabled>All losers removed - check table</button>
+        <details><summary>Payout reference (optional)</summary>
+          <div class="reference">Straight: 35:1 &middot; Split: 17:1 &middot; Street: 11:1 &middot; Corner: 8:1 &middot; Six line: 5:1 &middot; Dozen / column: 2:1 &middot; Red / black / odd / even / low / high: 1:1 &middot; American five-number basket: 6:1.</div>
+          <p>Winnings = stake &times; odds. Total return = winnings + original stake. No la partage or en prison. Confirm the rules at your actual table.</p>
+        </details>
+      </section>
+      <section class="bets-panel" aria-label="Bets and payout questions"><h2 id="bets-heading">Bets on the table</h2><div id="bets"><p class="empty">Your random bets will appear here.</p></div></section>
+    </div>
+  </main>
+  <script src="roulette.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
